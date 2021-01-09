@@ -6,7 +6,7 @@ const {pin} = require("../config.js");
 const md5 = require("md5");
 
 app.get("/", (req, res) => {
-  res.render("index");
+  res.redirect("/signin");
 });
 
 app.get("/signin", (req, res) => {

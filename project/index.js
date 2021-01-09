@@ -11,6 +11,8 @@ const bodyParser = require("body-parser");
 app.use(cookieParser());
 app.use(bodyParser());
 
+app.use("/", require("./routes/main.js"));
+
 // Load Config
 const config = require("./config");
 
@@ -23,11 +25,6 @@ app.set('views', `${__dirname}/views`);
 
 // Serve Static Files
 app.use(express.static(`${__dirname}/public`));
-
-// Express app
-app.get("/", (req, res) => {
-  res.render("index");
-});
 
 // Listen on port 8080
 app.listen(8080);

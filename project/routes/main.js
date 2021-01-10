@@ -25,3 +25,10 @@ app.post("/signin", (req, res) => {
   res.cookie("auth", md5(pin));
   return res.redirect("/files");
 })
+
+app.get("/signout", (req, res) => {
+  let {auth} = req.cookies;
+  if (!auth) return res.redirect("/signin");
+  res.clearCookie('auth');
+  res.redirect("/signin");
+})

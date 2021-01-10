@@ -4,6 +4,15 @@ module.exports = app;
 
 const {pin, dir} = require("../config.js");
 const md5 = require("md5");
+const fs = require("fs");
+
+/*
+-- Planned Endpoints --
+/files/
+/files/manage/:file
+/files/view/:file
+/files/delete/:file
+*/
 
 function checkIfAuthorized(req, res) {
   let {auth} = req.cookies;
@@ -14,5 +23,6 @@ function checkIfAuthorized(req, res) {
 
 app.get("/", (req, res) => { // /files/
   checkIfAuthorized(req, res);
-  // todo do stuff
+  let files = fs.readdirSync(dir);
+  res.render("files.ejs", {files})
 })

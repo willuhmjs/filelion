@@ -6,7 +6,12 @@ const {pin} = require("../config.js");
 const md5 = require("md5");
 
 app.get("/", (req, res) => {
-  res.redirect("/signin");
+  let {auth} = req.cookies;
+  if (!auth) {
+    res.redirect("/signin");
+  } else {
+    res.redirect("/files")
+  }
 });
 
 app.get("/signin", (req, res) => {

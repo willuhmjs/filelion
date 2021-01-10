@@ -2,7 +2,7 @@ const { Router } = require("express");
 const app = Router();
 module.exports = app;
 
-const {pin} = require("../config.js");
+const {pin, dir} = require("../config.js");
 const md5 = require("md5");
 
 function checkIfAuthorized(req, res) {

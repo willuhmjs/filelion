@@ -12,6 +12,7 @@ app.use(cookieParser());
 app.use(bodyParser());
 
 app.use("/", require("./routes/main.js"));
+app.use("/files", require("./routes/files.js"));
 
 // Load Config
 const config = require("./config");

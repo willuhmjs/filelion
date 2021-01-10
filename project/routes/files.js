@@ -13,7 +13,6 @@ function checkIfAuthorized(req, res) {
 }
 
 app.get("/", (req, res) => { // /files/
-  // todo do stuff
   checkIfAuthorized(req, res);
-  res.send("You are authorized");
+  // todo do stuff
 })

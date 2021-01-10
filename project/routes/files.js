@@ -2,7 +2,7 @@ const { Router } = require("express");
 const app = Router();
 module.exports = app;
 
-const {pin, dir} = require("../config.js");
+const {pin, dir, sep} = require("../config.js");
 const md5 = require("md5");
 const fs = require("fs");
 
@@ -31,8 +31,8 @@ app.get("/", (req, res) => { // /files/
 app.get("/manage/:file", async (req, res) => {
   checkIfAuthorized(req, res);
   const {file} = req.params
-  console.log(`${dir}\\${file}`)
-  let fileExists = fs.existsSync(`${dir}\\${req.params.file}`);
+  console.log(`${dir}${sep}${file}`)
+  let fileExists = fs.existsSync(`${dir}${sep}${req.params.file}`);
   if (!fileExists) return res.redirect("/files");
   res.render("manage.ejs", {file})
 })

@@ -21,8 +21,18 @@ function checkIfAuthorized(req, res) {
   if (pinHashed !== auth) return res.redirect("/signout");
 }
 
+
 app.get("/", (req, res) => { // /files/
   checkIfAuthorized(req, res);
   let files = fs.readdirSync(dir);
-  res.render("files.ejs", {files})
+  res.render("files", {files})
+})
+
+app.get("/manage/:file", async (req, res) => {
+  checkIfAuthorized(req, res);
+  const {file} = req.params
+  console.log(`${dir}\\${file}`)
+  let fileExists = fs.existsSync(`${dir}\\${req.params.file}`);
+  if (!fileExists) return res.redirect("/files");
+  res.render("manage.ejs", {file})
 })

@@ -19,7 +19,6 @@ app.post("/signin", (req, res) => {
   let {auth} = req.cookies;
   let {attemptedPin} = req.body;
   if (auth) return res.redirect("/files");
-  console.log(req.body)
   if (!attemptedPin) return res.redirect("/signin"); // todo create error message
   if (attemptedPin !== pin) return res.redirect("/signin"); // todo create error message
   res.cookie("auth", md5(pin));

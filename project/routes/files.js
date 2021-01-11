@@ -14,6 +14,8 @@ const fs = require("fs");
 /files/upload
 */
 
+// todo do file upload
+
 function checkIfAuthorized(req, res) {
   let {auth} = req.cookies;
   if (!auth) return res.redirect("/signin");

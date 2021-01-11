@@ -32,14 +32,22 @@ app.get("/", (req, res) => { // /files/
   res.render("files", {files})
 })
 
-app.get("/manage/:file", async (req, res) => {
+app.get("/manage/:file", (req, res) => {
   checkIfAuthorized(req, res);
   fileExists(req, res);
+  let {file} = req.params
   res.render("manage.ejs", {file})
 })
 
-app.get("/view/:file", async (req, res) => {
+app.get("/view/:file", (req, res) => {
   checkIfAuthorized(req, res);
   fileExists(req, res);
   res.sendFile(dir+sep+req.params.file);
+})
+
+app.get("/delete/:file", (req, res) => {
+  checkIfAuthorized(req, res);
+  fileExists(req, res);
+  fs.unlinkSync(dir+sep+req.params.file);
+  res.redirect("/files");
 })

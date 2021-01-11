@@ -5,6 +5,7 @@ module.exports = app;
 const {pin, dir, sep} = require("../config.js");
 const md5 = require("md5");
 const fs = require("fs");
+
 /*
 -- Planned Endpoints --
 /files/
@@ -52,4 +53,8 @@ app.get("/delete/:file", (req, res) => {
   fileExists(req, res);
   fs.unlinkSync(dir+sep+req.params.file);
   res.redirect("/files");
+})
+
+app.post("/upload", (req, res) => {
+  
 })

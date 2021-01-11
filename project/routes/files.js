@@ -5,13 +5,13 @@ module.exports = app;
 const {pin, dir, sep} = require("../config.js");
 const md5 = require("md5");
 const fs = require("fs");
-
 /*
 -- Planned Endpoints --
 /files/
 /files/manage/:file
 /files/view/:file
 /files/delete/:file
+/files/upload
 */
 
 function checkIfAuthorized(req, res) {

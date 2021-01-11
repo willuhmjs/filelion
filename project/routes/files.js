@@ -6,6 +6,11 @@ const {pin, dir, sep} = require("../config.js");
 const md5 = require("md5");
 const fs = require("fs");
 
+const fileUpload = require("express-fileupload");
+app.use(fileUpload({
+  safeFileNames: true
+}));
+
 /*
 -- Planned Endpoints --
 /files/
@@ -55,6 +60,9 @@ app.get("/delete/:file", (req, res) => {
   res.redirect("/files");
 })
 
-app.post("/upload", (req, res) => {
-  
+app.post("/upload", async (req, res) => {
+  checkIfAuthorized(req, res);
+  let file = req.files.file;
+  await file.mv(dir);
+  return res.redirect("/files");
 })

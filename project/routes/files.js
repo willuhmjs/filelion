@@ -21,6 +21,10 @@ function checkIfAuthorized(req, res) {
   if (pinHashed !== auth) return res.redirect("/signout");
 }
 
+function fileExists(req, res) {
+  let {file} = req.params
+  if (!fs.existsSync(dir+sep+file)) return res.redirect("/files");
+}
 
 app.get("/", (req, res) => { // /files/
   checkIfAuthorized(req, res);
@@ -30,9 +34,12 @@ app.get("/", (req, res) => { // /files/
 
 app.get("/manage/:file", async (req, res) => {
   checkIfAuthorized(req, res);
-  const {file} = req.params
-  console.log(`${dir}${sep}${file}`)
-  let fileExists = fs.existsSync(`${dir}${sep}${req.params.file}`);
-  if (!fileExists) return res.redirect("/files");
+  fileExists(req, res);
   res.render("manage.ejs", {file})
+})
+
+app.get("/view/:file", async (req, res) => {
+  checkIfAuthorized(req, res);
+  fileExists(req, res);
+  res.sendFile(dir+sep+req.params.file);
 })

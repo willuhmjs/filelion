@@ -34,4 +34,4 @@ app.use(express.static(`${__dirname}/public`));
 app.use(fileUpload({}));
 
 // Start the server
-app.listen(config.port);
+app.listen(config.port, () => console.log('Listening on port', config.port));

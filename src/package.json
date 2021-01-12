@@ -15,6 +15,6 @@
     "scripts": {
         "start": "node index.js"
     },
-    "author": "",
+    "author": "William Faircloth",
     "license": "Apache-2.0"
 }

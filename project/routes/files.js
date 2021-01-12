@@ -7,9 +7,7 @@ const md5 = require("md5");
 const fs = require("fs");
 
 const fileUpload = require("express-fileupload");
-app.use(fileUpload({
-  safeFileNames: true
-}));
+app.use(fileUpload());
 
 /*
 -- Planned Endpoints --
@@ -63,6 +61,6 @@ app.get("/delete/:file", (req, res) => {
 app.post("/upload", async (req, res) => {
   checkIfAuthorized(req, res);
   let file = req.files.file;
-  await file.mv(dir);
+  await file.mv(dir+sep+file.name);
   return res.redirect("/files");
 })

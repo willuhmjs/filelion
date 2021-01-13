@@ -31,7 +31,7 @@ app.set('views', `${__dirname}/views`);
 app.use(express.static(`${__dirname}/public`));
 
 // Configure file uploader
-app.use(fileUpload({}));
+
 
 // Start the server
 app.listen(config.port, () => console.log('Listening on port', config.port));

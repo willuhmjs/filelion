@@ -7,8 +7,12 @@ const path = require("path");
 const md5 = require("md5");
 
 const { password, storage } = require("../config.js");
-
 const passMD5 = md5(password);
+
+// Use fileupload
+const fileUpload = require("express-fileupload");
+app.use(fileUpload({}));
+
 function isAuthorized(req, res) {
     const { auth } = req.cookies;
     if (!auth) {
@@ -67,6 +71,6 @@ app.post("/upload", async (req, res) => {
     if (!isAuthorized(req, res)) return;
 
     const { file } = req.files;
-    await file.mv(path.join(storage, file));
+    await file.mv(path.join(storage, file.name));
     res.redirect("/files");
 });

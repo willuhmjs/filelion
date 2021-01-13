@@ -11,11 +11,12 @@ The following libraries were used in the creation of this project
 * MD5
 * Bootstrap
 
-
-
 ## Installation
 To get started: Edit the config, then cd into the src folder and run:
 ```
 npm install
 node index.js
 ```
+
+## Credits
+User @Zytekaron helped with some code refractoring

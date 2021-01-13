@@ -19,4 +19,4 @@ node index.js
 ```
 
 ## Credits
-User @Zytekaron helped with some code refractoring
+User Zytekaron helped with some code refractoring

@@ -6,7 +6,6 @@ const app = express();
 const ejs = require("ejs");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
-const fileUpload = require("express-fileupload");
 
 // Use cookieParser/bodyParser
 app.use(cookieParser());

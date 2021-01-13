@@ -13,14 +13,14 @@
 </head>
 <body>
   <div class="container">
-    <ul class="list-group col-12 col-md-6 col-lg-3 mb-3 mt-3">
+    <ul class="list-group col-12 mb-3 mt-3">
         <% files.forEach(file => { %>
             <li class="list-group-item"><a class="text-decoration-none text-dark" href="/files/manage/<%= file %>"><%= file %></a></li>
         <% }); %>
     </ul>
 
-    <form class="col-12 col-md-6" method="POST" action="/files/upload" enctype="multipart/form-data">
-      <input class="form-control" type="file" name="file"/>
+    <form class="col-12 mb-3" method="POST" action="/files/upload" enctype="multipart/form-data">
+      <input class="form-control mb-3" type="file" name="file" required/>
       <button class="btn btn-warning" type="submit">Upload</button>
     </form>
   </div>

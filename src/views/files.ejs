@@ -12,17 +12,18 @@
     <title>Filelion - Files</title>
 </head>
 <body>
-<ul>
-    <% files.forEach(file => { %>
-        <li><a href="/files/manage/<%= file %>"><%= file %></a></li>
-    <% }); %>
-</ul>
+<div class="container">
+  <ul class="list-group">
+      <% files.forEach(file => { %>
+          <li class="list-group-item"><a class="text-decoration-none text-dark" href="/files/manage/<%= file %>"><%= file %></a></li>
+      <% }); %>
+  </ul>
 
-
-<form method="POST" action="/files/upload" enctype="multipart/form-data">
-    <input type="file" name="file"/>
-    <input type="submit"/>
-</form>
+  <form method="POST" action="/files/upload" enctype="multipart/form-data">
+      <input type="file" name="file"/>
+      <input type="submit"/>
+  </form>
+</div>
 <!-- Optional JavaScript; choose one of the two! -->
 
 <!-- Option 1: Bootstrap Bundle with Popper -->

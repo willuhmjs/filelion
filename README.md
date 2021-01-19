@@ -20,6 +20,3 @@ node index.js
 
 ## Credits
 User Zytekaron helped with some code refractoring
-
-## Todo
-Stream file instead of sending it

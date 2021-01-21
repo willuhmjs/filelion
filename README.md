@@ -9,6 +9,7 @@ The following libraries were used in the creation of this project
 * Body Parser
 * Express File Upload
 * MD5
+* Path
 * Bootstrap
 
 ## Installation
